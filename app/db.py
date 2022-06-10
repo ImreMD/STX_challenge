@@ -1,5 +1,9 @@
 #choose MongoDB for the projest as I was already 
+<<<<<<< HEAD
 #working on a small FARM project for my job
+=======
+# working on my own FARM project
+>>>>>>> 1f8341840787b9fbe81128e50a9c01d8b1b2c60c
 
 import motor.motor_asyncio
 
