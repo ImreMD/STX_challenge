@@ -17,12 +17,6 @@ from app.db import (
 
 import json
 
-#read configuration
-def read_json(file_path):
-    f = open(file_path, "r")
-    return json.load(f)
-
-
 #App Object
 app = FastAPI()
 
@@ -47,9 +41,10 @@ def read_root():
 # challenge 1 - end point
 @app.get("/api_spec")
 def read_spec():
+    #read configuration
 
-    rf = open("config.json", "r")
-    return json.load(rf)['APP']
+    with open("config.json", "r") as rf:
+        return json.load(rf)['APP']
 
 ################################################
 # challenge 2 - list books end point
@@ -104,3 +99,24 @@ async def modify_book_ID(id, acqure :bool):
     return response
 
     #get acquire
+
+################################################
+# challenge 6 - Delete
+# not finished by lack of time
+
+################################################
+# challenge 7 - Pool book from Google API / Update / Insert
+# not finished by lack of time
+# a starting point create in file callGoogleApi.py I planned to
+# - connect to Google API (the key will expire in 6 days)
+# - pool data into a structure BookGoogle then based on this find/update or create entities
+
+################################################
+# challenge 8 - Build and deploy
+# Choose Google Cloud Run solution (already has something in Google cloud)
+# it was something new for me as I never deal with deployment, still: 
+# - manage to create a Dockerfile
+# - Create a Google project 
+# - Fail to (for mistery reason) build container on Google Cloud got an error: "no concurrent builds quotas available"
+#   even if in the choosen region europe-west4 (try on west3 also) I can see 10 quotas available" 
+# I give up deployment but despite being quite advanced.
