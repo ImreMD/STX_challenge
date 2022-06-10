@@ -5,9 +5,9 @@ from fastapi import HTTPException
 from fastapi import Body
 from typing import Union, List
 
-from model import (BookNoId, Book)
+from app.model import (BookNoId, Book)
 
-from db import (
+from app.db import (
      do_query_books,
      insert_book,
      incrSequence,
