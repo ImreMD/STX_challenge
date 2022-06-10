@@ -1,10 +1,21 @@
 from unittest.util import strclass
 from pydantic import BaseModel, validator
 from typing import List, Union
-from bson.objectid import ObjectId
-import asyncio
 
 
+##################################
+# with more time I could leverage
+# Pydantic capabilities to improve
+# the models
+
+##################################
+# created a Book class with no ID 
+# ID will be supplied by a function
+# checking a mongoDB counter
+# this is to stick to the technical requirement
+# where id is a integer (123, 340, 666)
+# MongoDB is using its own ObjectID
+##################################
 class BookNoId(BaseModel):
     #id :int -- missing to bypass mongoDB ID_ auto-generation
     e_id :Union [str, None]

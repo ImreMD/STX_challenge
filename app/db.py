@@ -1,15 +1,11 @@
-from pickletools import int4
-from pprint import pprint
+#choose MongoDB for the projest as I was already 
+#working on a small FARM project for my job
+
 import motor.motor_asyncio
 
-import asyncio
-import datetime
-import pprint
-from typing import Union
-import copy
-
-import json
-
+############################################################
+# initial data just to populate the collections
+# actually those data are in a collection 
 fake_books_db = [
             {   "id":123,
                 "external_id": "rToaogEACAAJ",
@@ -40,10 +36,17 @@ fake_books_db = [
 
 
 #client = motor.motor_asyncio.AsyncIOMotorClient('localhost', 27017)
-
+# don't worry this is only for the challenge create an user who will expire in 6 days
+# in production sensitive date should be pool in a .env (or yaml/toml ) file
+# I ALLOWED access from anywhere (no IP restriction) to this db
 client = motor.motor_asyncio.AsyncIOMotorClient("mongodb+srv://STXNext:challenge@cluster0.toyfu.mongodb.net/?retryWrites=true&w=majority")
 db = client.book_db
 collection = db.book_collection
+#################################################################
+# counter collection seq (iterator) set to 665 in order to 
+# stick to the documention where creation of a new Book
+# should have an id of 666
+
 counter = db.counter_tracker
 counter_init = {"_id" : "bookid", "seq" : 665}
 

@@ -1,10 +1,15 @@
 {
 "APP" : 
     { 
-        "info" : {"version" : "2022.05.16"}
+        "info" : {
+            "version" : "2022.05.16"
+            }
+       
+    },
 
+"API_KEY": {
+
+        "GoogleBookAPI" : "AIzaSyA8chJyP1HwFK3_Ep-txNyupkThIR7lKDE"
     }
 
-
 }
- 
